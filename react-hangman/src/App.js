@@ -7,15 +7,15 @@ import Keyboard from './components/keyboard';
 import Play from './components/play';
 
 function App() {
-  const [playerName, setPlayerName] = useState('d');
-  const [category, setCategory] = useState('football');
+  const [playerName, setPlayerName] = useState('');
+  const [category, setCategory] = useState('');
 
   if (!playerName) {
     return (
       <div className="App">
         <Header />
         <EnterName setPlayerName={setPlayerName} />
-        <Keyboard />
+        <h2>Enter player name, good luck!</h2>
       </div>
     );
   }
@@ -24,7 +24,7 @@ function App() {
     return (
       <div className="App">
         <Header />
-        <Category setCategory={setCategory} />
+        <Category playerName={playerName} setCategory={setCategory} />
       </div>
     );
   }

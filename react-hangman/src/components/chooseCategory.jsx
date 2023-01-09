@@ -1,7 +1,7 @@
-const Category = () => {
+const Category = ({ playerName }) => {
   return (
     <div className="categories">
-      <h2>Choose Category</h2>
+      <h2>Hi {playerName}! Please choose your Category</h2>
       <div className="randomCategory">
         <img src="" alt=""></img>
         <p>random</p>
