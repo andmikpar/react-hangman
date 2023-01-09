@@ -6,6 +6,9 @@ const Play = ({ playerName, category }) => {
 
   function selectWord(category) {
     const possibleWords = words.filter((word) => {
+      if (category === 'random') {
+        return word;
+      }
       if (word.sport === category) return word;
     });
 
@@ -20,6 +23,7 @@ const Play = ({ playerName, category }) => {
   return (
     <div className="play">
       <h2>guess the stadium before its too late</h2>
+      <p>{targetWord}</p>
       <img src="" alt="hangman at stage"></img>
       <p>lets play</p>
     </div>

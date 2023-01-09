@@ -28,3 +28,30 @@
 .pageTitle {
   margin: 15px;
 }
+
+.catIcon {
+  font-size: 75px;
+  margin: 10px;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 56%;
+}
+
+.category {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+  font-size: 30px;
+  margin: 5px;
+  border-radius: 40px;
+  background-color: #6d717a;
+}
+
+.category:hover {
+  transform: scale(1.02);
+}
