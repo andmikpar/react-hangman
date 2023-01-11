@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import words from '../wordLists/words';
 import Keyboard from './keyboard';
+import { MdReplay } from 'react-icons/md';
 
 const Play = ({ playerName, category, setGuess, guess }) => {
   const [targetWord, setTargetWord] = useState('');
@@ -43,6 +44,7 @@ const Play = ({ playerName, category, setGuess, guess }) => {
   });
 
   const Hangman = require(`../hangmanPositions/position-${num}.png`);
+  const winCheck = onScreen.join('') === targetWord;
 
   return (
     <div className="play">
@@ -52,11 +54,15 @@ const Play = ({ playerName, category, setGuess, guess }) => {
       <p>{onScreen}</p>
 
       <br></br>
+      {winCheck ? <p>you win</p> : <p></p>}
       {lostGame ? (
         <p>
           You Lose {playerName}! The word you wanted was {targetWord}!{' '}
         </p>
       ) : (
+        <p></p>
+      )}
+      {!winCheck && !lostGame ? (
         <div>
           <img src={Hangman} alt="hangman"></img>
           <p>lets play</p>
@@ -64,6 +70,15 @@ const Play = ({ playerName, category, setGuess, guess }) => {
             <Keyboard setGuess={setGuess} guess={guess} />
           </div>
         </div>
+      ) : (
+        <button
+          className="replayButton"
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          <MdReplay />
+        </button>
       )}
     </div>
   );

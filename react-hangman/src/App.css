@@ -68,3 +68,9 @@
   width: 253px;
   justify-content: center;
 }
+
+.replayButton {
+  height: 45px;
+  width: 45px;
+  font-size: x-large;
+}
