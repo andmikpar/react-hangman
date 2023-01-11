@@ -55,3 +55,16 @@
 .category:hover {
   transform: scale(1.02);
 }
+
+.keyboardContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 253px;
+  justify-content: center;
+}

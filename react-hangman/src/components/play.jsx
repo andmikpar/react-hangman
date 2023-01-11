@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
 import words from '../wordLists/words';
+import Keyboard from './keyboard';
 
-const Play = ({ playerName, category }) => {
+const Play = ({ playerName, category, setGuess, guess }) => {
   const [targetWord, setTargetWord] = useState('');
+  const [guessed, setGuessed] = useState([]);
+  const [num, setNum] = useState(1);
+  const [lostGame, setLostGame] = useState(false);
 
   function selectWord(category) {
     const possibleWords = words.filter((word) => {
@@ -19,13 +24,47 @@ const Play = ({ playerName, category }) => {
     const word = selectWord(category);
     setTargetWord(word);
   }
+  useEffect(() => {
+    if (!targetWord.includes(guess) && num < 10) {
+      setNum(num + 1);
+    } else if (!targetWord.includes(guess) && num >= 10) {
+      setLostGame(true);
+    }
+    setGuessed([...guessed, guess]);
+  }, [guess]);
+
+  const targetArray = targetWord.split('');
+  const onScreen = targetArray.map((letter) => {
+    if (!guessed.includes(letter)) {
+      return '_ ';
+    }
+
+    return letter;
+  });
+
+  const Hangman = require(`../hangmanPositions/position-${num}.png`);
 
   return (
     <div className="play">
       <h2>guess the stadium before its too late</h2>
-      <p>{targetWord}</p>
-      <img src="" alt="hangman at stage"></img>
-      <p>lets play</p>
+      <br></br>
+
+      <p>{onScreen}</p>
+
+      <br></br>
+      {lostGame ? (
+        <p>
+          You Lose {playerName}! The word you wanted was {targetWord}!{' '}
+        </p>
+      ) : (
+        <div>
+          <img src={Hangman} alt="hangman"></img>
+          <p>lets play</p>
+          <div className="keyboardContainer">
+            <Keyboard setGuess={setGuess} guess={guess} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

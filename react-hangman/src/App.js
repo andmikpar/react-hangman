@@ -3,12 +3,13 @@ import './App.css';
 import Category from './components/chooseCategory';
 import EnterName from './components/enterName';
 import Header from './components/header';
-import Keyboard from './components/keyboard';
+
 import Play from './components/play';
 
 function App() {
   const [playerName, setPlayerName] = useState('');
   const [category, setCategory] = useState('');
+  const [guess, setGuess] = useState('');
 
   if (!playerName) {
     return (
@@ -32,8 +33,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Play category={category} playerName={playerName} />
-      <Keyboard />
+
+      <Play
+        category={category}
+        playerName={playerName}
+        setGuess={setGuess}
+        guess={guess}
+      />
     </div>
   );
 }
