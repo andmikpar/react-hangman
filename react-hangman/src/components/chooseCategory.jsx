@@ -6,7 +6,7 @@ const Category = ({ playerName, setCategory }) => {
   return (
     <div className="categories">
       <h2>
-        Hi {playerName}! <br></br> Please choose your Category
+        Hi {playerName}! <br></br> Please choose a Category
       </h2>
       <div className="categoryContainer">
         <button className="category" onClick={() => setCategory('random')}>

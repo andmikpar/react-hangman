@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   background-color: #6d717a;
-  height: 100vh;
+  min-height: 100vh;
+  /* overflow: hidden; */
 }
 
 .header {
@@ -67,6 +68,7 @@
   flex-wrap: wrap;
   width: 253px;
   justify-content: center;
+  margin-bottom: 5vh;
 }
 
 .replayButton {

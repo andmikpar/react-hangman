@@ -48,13 +48,13 @@ const Play = ({ playerName, category, setGuess, guess }) => {
 
   return (
     <div className="play">
-      <h2>guess the stadium before its too late</h2>
+      <h2>Guess the name of the stadium before its too late!!</h2>
       <br></br>
 
       <p>{onScreen}</p>
 
       <br></br>
-      {winCheck ? <p>you win</p> : <p></p>}
+      {winCheck ? <p>You Win!</p> : <p></p>}
       {lostGame ? (
         <p>
           You Lose {playerName}! The word you wanted was {targetWord}!{' '}
@@ -65,7 +65,7 @@ const Play = ({ playerName, category, setGuess, guess }) => {
       {!winCheck && !lostGame ? (
         <div>
           <img src={Hangman} alt="hangman"></img>
-          <p>lets play</p>
+          <p>Make a guess</p>
           <div className="keyboardContainer">
             <Keyboard setGuess={setGuess} guess={guess} />
           </div>
